@@ -1,0 +1,17 @@
+<table class="display_flashcards">
+  <tr>
+    <th>Front</th>
+    <th>Back</th>
+  </tr>
+  <% flashcards.each do |flashcard| %>
+    <tr>
+      <td class="whitespace"><%= raw(flashcard.front) %></td>
+      <td class="whitespace"><%= raw(flashcard.back) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="flashcards_button_space">
+  <b><%= link_to 'Edit', edit_flashcard_deck_path, class: "edit_delete_buttons edit plain-link" %></b>
+  <b><%= link_to 'Destroy',  { action: :destroy, id: deck.id }, method: :delete, data: { confirm: 'Delete full deck and all its flashcards?' }, class: " edit_delete_buttons delete plain-link" %></b>
+</div>

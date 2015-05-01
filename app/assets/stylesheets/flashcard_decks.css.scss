@@ -1,0 +1,437 @@
+// Place all the styles related to the FlashcardDecks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/******************* VARIABLES *****************/
+$blue-purple: #7e82da;
+
+/******************** INDEX *******************/
+.viewport {
+  // background: #b9b9b9;
+  // padding: 10px 0px;
+  color: #fff;
+}
+
+.button-holder {
+  padding: 20px 0px;
+  text-align: center;
+}
+
+.deck_preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.deck_display_count {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  font-size: 0.9em;
+  color: #a39bff;
+}
+
+.new_deck_button {
+  padding: 12px;
+  // background: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid #9f72ff;
+  border-radius: 15px;
+  color: #fff;
+  font-family: "Open Sans", Helvetica, sans-serif;
+
+  &:hover {
+    background: rgb(90, 90, 90);
+  }
+}
+
+.flashcard_decks_container {
+  //get rid when resizing
+  padding: 20px;
+}
+
+.decks {
+  margin-top: 0px;
+  list-style: none;
+  li {
+    box-sizing: border-box;
+    padding: 30px 15px 10px 15px;
+    overflow: hidden;
+    width: 340px;
+    height: 200px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(to bottom right, #87f6f6 0%, #4c3bd7 100%);
+    border-image-slice: 1;
+    margin: 40px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    cursor: pointer;
+
+    a {
+      color: #c0f3ff;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+
+    &:hover {
+      background-color: #5a5a5a;
+    }
+  }
+}
+
+
+/********************* NEW DECK **********************/
+.form_holder {
+  border: 5px solid #b9b9b9;
+  background: #555555;
+  color: #fff;
+  margin: 50px 150px;
+  padding: 30px 130px 50px 130px;
+}
+
+.create_deck_button {
+  padding: 10px;
+  text-decoration: none;
+  border: 1px solid #979797;
+  border-radius: 5px;
+  color: #ffffff;
+  background: rgb(0, 115, 193);
+
+  &:hover {
+    background: rgb(0, 91, 144);
+  }
+}
+
+/********************** SHOW DECK *********************/
+.deck_holder {
+  color: #fff;
+  padding: 0px 60px;
+}
+
+
+/*** NEW FLASHCARDS ***/
+.flashcard_creator {
+  position: relative;
+  padding: 30px 0px;
+  width: 690px;
+  //width: 650px;
+  margin: 0 auto;
+}
+
+.flashcard_unit {
+  padding: 30px 0px;
+}
+
+.flashcard_input {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+  }
+
+  textarea {
+    width: 300px;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+.flashcard_remove {
+  float: left;
+  color: #888;
+  //color: transparent;
+  padding: 10px 15px;
+  margin-top: 20px;
+  border-radius: 2px;
+  font-size: 1.2em;
+
+  &:hover {
+    color: black;
+    background: #777;
+  }
+}
+
+.add_flashcard_button {
+  clear: both;
+  display: block;
+  padding: 0px 10px;
+  width: 50px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #3e6eff;
+  text-decoration: none;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-size: 2em;
+  text-align: center;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.create_flashcards_button {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  min-width: 180px;
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  color: #fff;
+  background: #3d6ad6;
+  font-family: "Open Sans", Helvetica, sans-serif;
+
+  &:hover {
+    background: #5689f7;
+  }
+}
+
+.delete_flashcards_button {
+  clear: both;
+  display: block;
+  min-width: 160px;
+  width: 18%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  color: #fff;
+  background: #ba0000;
+  font-family: "Open Sans", Helvetica, sans-serif;
+
+  &:hover {
+    background: #f50000;
+  }
+}
+
+
+/**** DISPLAY CURRENT FLASHCARDS ***/
+.flashcards_button_space {
+  padding: 30px 20px 20px 20px;
+  text-align: center;
+}
+
+//TODO: TAB NAVIGATION
+.mode_tabs {
+  list-style: none;
+  border: 1px solid $blue-purple;
+
+  li {
+    float: left;
+    padding: 5px;
+  }
+}
+
+.change_mode_button {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  margin-top: 40px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  text-align: center;
+  color: #eee;
+
+  &:hover {
+    background: #555;
+  }
+}
+
+/* LIST VIEW */
+.display_flashcards {
+  clear: both;
+  background: #f0f0f0;
+  color: #000;
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 60px;
+  font-family: "Georgia", serif;
+
+  table, th, td {
+    border: 1px solid $blue-purple;
+    border-radius: 3px;
+  }
+
+  th {
+    font-family: "Lato", Helvetica, sans-serif;
+    font-size: 1.2em;
+    font-weight: 800;
+    background: #e0e0f0;
+    padding: 10px;
+  }
+
+  td {
+    padding: 15px;
+  }
+
+  th, td {
+    text-align: center;
+    min-width: 300px;
+    width: 450px;
+  }
+}
+
+.edit_delete_buttons {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  width: 100px;
+  background: #bbb;
+  border-radius: 2px;
+  text-align: center;
+  color: #000;
+
+  &:hover {
+    background: #ddd;
+  }
+}
+
+/* FLASHCARD VIEW */
+.darken {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(20, 20, 20, .8);
+  padding-top: 150px;
+}
+
+.normal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 200px;
+  z-index: -999;
+}
+
+.flashcard_view_container {
+  width: 700px;
+  height: 320px;
+  margin: 0 auto;
+  margin-bottom: 130px;
+  padding: 100px 0px;
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+}
+
+.flashcard_counter {
+  position: absolute;
+  top: 50px;
+  left: 80px;
+  font-size: 1.2em;
+  color: #ccc; // #babcf4;
+}
+
+.memorized_counter {
+  position: absolute;
+  top: 50px;
+  right: 80px;
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+.memorized_button {
+  position: absolute;
+  bottom: 10px;
+  right: 250px;
+  width: 180px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: #000;
+  background: #ddd; //linear-gradient(to top, #2f2b95, #69b8ec);
+  font-size: 1em;
+
+  &:hover {
+    background: #a8bbdd;
+  }
+}
+
+.prev-next {
+  float: left;
+  width: 60px;
+  padding: 30px 0px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 1.5em;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.flashcard_holder {
+  float: left;
+  width: 580px;
+  text-align: center;
+}
+
+#flashcard_slider {
+  list-style: none;
+  padding: 0px 20px;
+  height: 300px;
+  // display: table;
+}
+
+.flashcard_outer {
+  height: 320px;
+}
+
+.flashcard {
+  position: relative;
+  border: 1px solid black;
+  background: #fff;
+  box-sizing: border-box;
+  width: 540px;
+  height: 320px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2em;
+  color: #000;
+  cursor: default;
+  // position: absolute;
+  // top:50%;
+  // margin-top:-160px;
+}
+
+.flashcard:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.flashcard :first-child {
+  display: inline-block;
+  width: 90%;
+  vertical-align: middle;
+}
+
+// .answer {
+//   background: #ddd;
+// }
+
+/**************** EDIT DECK *****************/
+.edit_form {
+  color: #ffffff;
+  padding: 10px 80px;
+}

@@ -1,0 +1,17 @@
+<div class="edit_form">
+  <h1 class="center">
+    Edit <%= @deck.name %>
+  </h1>
+
+  <%= nested_form_for(@deck) do |f| %>
+    <div class="flashcard_creator center">
+      <%= f.fields_for :flashcards do |f| %>
+        <%= render 'new_flashcard', f: f %>
+      <% end %>
+      <%= f.link_to_add "+", :flashcards, class: "add_flashcard_button" %>
+    </div>
+    
+    <%= f.submit "Create flashcards", class: "create_flashcards_button" %>
+  <% end %>
+
+</div>

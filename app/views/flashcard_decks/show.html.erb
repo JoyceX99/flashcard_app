@@ -1,0 +1,32 @@
+<div class="deck_holder">
+  <h1 class="center">
+    <%= @deck.name %>
+  </h1>
+  <% if @flashcards.count > 0 %>
+
+    <% if @flashcard_mode %>
+      <%= link_to 'List View', flashcard_deck_path, class: "change_mode_button plain-link-white" %>
+      <%= render partial: 'flashcard_view', locals: {deck: @deck, flashcards: @flashcards} %>
+    <% else %>
+      <%= link_to 'Flashcard Mode', flashcard_deck_path(flashcard_mode: true, anchor: "flashcard_slider"),  class: "change_mode_button plain-link-white" %>
+      <%= render partial: 'list_view', locals: {deck: @deck, flashcards: @flashcards} %>
+    <% end %>
+
+  <% else @flashcards.length == 0 %>
+    <br>
+    <p class="center">You have no flashcards yet. Add some new ones!</p>
+
+    <%= nested_form_for(@deck) do |f| %>
+      <div class="flashcard_creator center">
+        <%= f.fields_for :flashcards do |f| %>
+          <%= render 'new_flashcard', f: f %>
+        <% end %>
+        <%= f.link_to_add "+", :flashcards, class: "add_flashcard_button" %>
+      </div>
+
+      <%= f.submit "Create flashcards", class: "create_flashcards_button" %>
+      <%= link_to 'Delete flashcards',  { action: :destroy, id: @deck.id }, method: :delete, class: "delete_flashcards_button" %></b>
+    <% end %>
+
+  <% end %>
+</div>

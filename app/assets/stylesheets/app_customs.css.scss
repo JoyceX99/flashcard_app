@@ -1,0 +1,102 @@
+//cursor: pointer for clickable divs
+//animation lock for jquery effects
+//delegate to on page:change for window sizing
+
+
+body {
+  background: #454545;
+  margin: 0px;
+  font-family: "Raleway", Helvetica, sans-serif;
+}
+
+.header_link {
+  text-decoration: none;
+  color: #fff;
+}
+
+h1.title {
+  font-family: "Lato", Arial, sans-serif;
+  text-align: center;
+}
+
+h1.home_title {
+  font-weight: 100;
+  font-size: 45px;
+}
+
+.center {
+  text-align: center;
+}
+
+.vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hidden {
+  display: none;
+}
+
+.plain-link {
+  text-decoration: none;
+  color: #000;
+}
+
+.plain-link-white {
+  text-decoration: none;
+  color: #fff;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.whitespace {
+  white-space: pre-wrap;
+}
+
+
+.hide_overflow {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  max-height: 55px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header {
+  background: #2f2f2f;
+  padding: 12px;
+  h2 {
+    margin: 0px;
+    color: #ffffff;
+    text-align: center;
+  }
+}
+
+.background {
+  padding: 20px 120px;
+}
+
+
+input, textarea {
+  font-size: 16px;
+  border: 1px solid #bbb;
+  padding: 6px;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+
+input {
+  height: auto !important;
+}

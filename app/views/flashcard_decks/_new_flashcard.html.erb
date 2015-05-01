@@ -1,0 +1,12 @@
+<div class="flashcard_input">
+  <%= f.label :front, 'Front' %>
+  <%= f.text_area :front, rows: 5 %>
+</div>
+<div class="flashcard_input">
+  <%= f.label :back, 'Back' %>
+  <%= f.text_area :back, rows: 5 %>
+</div>
+<div>
+  <%= f.hidden_field :_destroy %>
+  <%= f.link_to_remove "x", class: "flashcard_remove plain-link" %>
+</div>

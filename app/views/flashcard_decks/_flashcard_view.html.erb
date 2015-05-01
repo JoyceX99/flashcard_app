@@ -1,0 +1,26 @@
+<!-- <div id="darken_container" class="darken"> -->
+  <div class="flashcard_view_container">
+    <div class="prev-next" id="prev"> < </div>
+
+    <div class="flashcard_holder">
+      <ul id="flashcard_slider">
+        <% flashcards.each_with_index do |flashcard, index| %>
+        <li class="flashcard_outer" id= 'card-<%= index %>'>
+          <div class="flashcard front">
+            <p class="whitespace noselect"><%= raw(flashcard.front) %></p>
+          </div>
+          <div class="flashcard back">
+            <p class="whitespace noselect"><%= raw(flashcard.back) %></p>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="prev-next" id="next"> > </div>
+
+    <p class="flashcard_counter" id="counter"></p>
+    <p class="memorized_counter" id="memorized"></p>
+    <button type="button" class="memorized_button">Memorized ✓</button>
+  </div>
+<!-- </div> -->

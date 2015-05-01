@@ -1,0 +1,7 @@
+<li class="deck_preview">
+  <%= link_to flashcard_deck.name, flashcard_deck %>
+  <br>
+  <br>
+  <div class="hide_overflow"><%= flashcard_deck.description %></div>
+  <p class="deck_display_count"><%= flashcard_deck.flashcards.count %> cards</p>
+</li>
