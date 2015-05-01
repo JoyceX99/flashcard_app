@@ -1,3 +1,3 @@
-== README
+FLASHCARDS 2.0
 
-A simple, intuitive, and minimalist flashcard study app built on Rails. 
+A simple, intuitive, and minimalist flashcard study app built on Rails.
