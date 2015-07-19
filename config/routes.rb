@@ -1,6 +1,9 @@
 Quizlet::Application.routes.draw do
-  root                         'flashcard_decks#index'
-  get 'flashcard_mode'      => 'flashcard_decks#show_flashcards'  
+  #root                         'flashcard_decks#index'
+  root                         'users#new'
+  get 'flashcard_mode'      => 'flashcard_decks#show_flashcards'
+
+  resources :users, except: :index
   resources :flashcard_decks
 
   # The priority is based upon order of creation: first created -> highest priority.

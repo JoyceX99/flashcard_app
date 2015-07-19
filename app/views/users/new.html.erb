@@ -1,0 +1,20 @@
+<div class="new-user-form">
+  <h1 class="title"> Sign Up </h1>
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "Name", class: "field-break" %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: "Email", class: "field-break" %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Password", class: "field-break" %>
+
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation, placeholder: "Password confirmation", class: "field-break-large" %>
+
+    <%= f.submit "Create my account", class: "create-account-button" %>
+  <% end %>
+</div>
