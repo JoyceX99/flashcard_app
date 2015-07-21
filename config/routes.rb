@@ -1,10 +1,21 @@
 Quizlet::Application.routes.draw do
+
   #root                         'flashcard_decks#index'
-  root                         'users#new'
+  root                         'users#home'
   get 'flashcard_mode'      => 'flashcard_decks#show_flashcards'
 
-  resources :users, except: :index
-  resources :flashcard_decks
+  get 'signup'    => 'users#new'
+  get 'login'     => 'sessions#new'
+  post 'login'    => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
+  get '/users/:id/flashcard_decks', to: redirect('/users/%{id}')
+
+  resources :users, except: :index do
+    resources :flashcard_decks, only: [:index, :new, :create]
+  end
+  resources :flashcard_decks, only: [:show, :edit, :update, :destroy]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

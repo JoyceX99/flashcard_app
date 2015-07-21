@@ -2,7 +2,9 @@ class FlashcardDecksController < ApplicationController
 
   # GET list of flashcards
   def index
-    @decks = FlashcardDeck.order(id: :desc).all
+    #@decks = FlashcardDeck.order(id: :desc).all
+    @decks = current_user.flashcard_decks.order(id: :desc)
+    render 'shared/_decks_home'
   end
 
   # GET form for creating new flashcard deck
@@ -12,9 +14,9 @@ class FlashcardDecksController < ApplicationController
 
   # POST new flashcard deck
   def create
-    @deck = FlashcardDeck.new(deck_params)
+    @deck = current_user.flashcard_decks.new(deck_params)
     if @deck.save
-      redirect_to flashcard_decks_path
+      redirect_to user_flashcard_decks_path
     else
       render :new
     end

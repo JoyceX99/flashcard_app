@@ -1,4 +1,4 @@
-<div class="new-user-form">
+<div class="user-entry-form">
   <h1 class="title"> Sign Up </h1>
   <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
@@ -13,7 +13,7 @@
     <%= f.password_field :password, placeholder: "Password", class: "field-break" %>
 
     <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation, placeholder: "Password confirmation", class: "field-break-large" %>
+    <%= f.password_field :password_confirmation, placeholder: "Password confirmation", class: "field-break" %>
 
     <%= f.submit "Create my account", class: "create-account-button" %>
   <% end %>

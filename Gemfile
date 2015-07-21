@@ -29,7 +29,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem "nested_form"
+gem 'nested_form'
+
+# nice formatting for irb's console inspection
+gem 'hirb', '~>0.7.3'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

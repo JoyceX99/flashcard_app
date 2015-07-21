@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718193154) do
+ActiveRecord::Schema.define(version: 20150720040518) do
 
   create_table "flashcard_decks", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
+
+  add_index "flashcard_decks", ["user_id"], name: "index_flashcard_decks_on_user_id"
 
   create_table "flashcards", force: :cascade do |t|
     t.integer  "deck_id"
@@ -29,12 +32,15 @@ ActiveRecord::Schema.define(version: 20150718193154) do
     t.integer  "flashcard_deck_id"
   end
 
+  add_index "flashcards", ["flashcard_deck_id"], name: "index_flashcards_on_flashcard_deck_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.string   "remember_digest"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
