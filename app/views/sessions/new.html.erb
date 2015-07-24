@@ -3,8 +3,8 @@
   <%= form_for(:session, url: login_path) do |f| %>
 
     <!-- FAKE INPUTS TO PREVENT CHROME AUTOFILL -->
-    <%= f.text_field :fake1, name: "prevent autofill", class: "hidden" %>
-    <%= f.text_field :fake2, name: "prevent autofill", class: "hidden" %>
+    <%= f.email_field :fake1, name: "prevent autofill", class: "hidden" %>
+    <%= f.password_field :fake2, name: "prevent autofill", class: "hidden" %>
 
     <%= f.label :email %>
     <%= f.email_field :email, placeholder: "Email", class: "field-break", :autocomplete => :off%>
