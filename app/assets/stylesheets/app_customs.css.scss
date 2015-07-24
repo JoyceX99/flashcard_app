@@ -7,14 +7,9 @@ input:-webkit-autofill { -webkit-box-shadow:0 0 0 500px white inset; }
 body {
   background: #454545;
   margin: 0px;
-  font-family: "Raleway", Helvetica, sans-serif;
+  font-family: "Open Sans", Helvetica, sans-serif;
 }
 
-.header-container {
-  margin: 0 auto;
-  padding: 10px;
-  width: 100px;
-}
 
 .header-link {
   text-decoration: none;
@@ -22,9 +17,24 @@ body {
   color: #fff;
 }
 
-.login-logout {
-  float: right;
+.left-link {
+  float: left;
+  margin: 10px;
+  padding: 7px;
+  border: solid 1px rgb(204, 205, 255);
+}
+
+.middle-link {
+  margin: 0 auto;
+  padding: 10px;
   width: 100px;
+}
+
+.right-link {
+  float: right;
+  margin: 10px;
+  padding: 7px;
+  border: solid 1px rgb(204, 205, 255);
 }
 
 .header {
@@ -51,6 +61,7 @@ h1.home_title {
 .white-text {
   color: #fff;
 }
+
 
 .vertical-align {
   position: relative;
@@ -102,6 +113,26 @@ h1.home_title {
 
 .background {
   padding: 20px 80px;
+}
+
+//Custom flash notices
+.flash {
+  text-align: center;
+  padding: 12px 20px 12px 20px;
+  margin-left: 140px;
+  margin-right: 140px;
+  min-width: 200px;
+  border-radius: 5px;
+
+  &.alert-notice {
+    border: thin solid rgb(0, 171, 63);
+    background: rgb(182, 215, 192);
+  }
+
+  &.alert-alert {
+    border: thin solid rgb(142, 0, 0);
+    background: rgb(218, 191, 191);
+  }
 }
 
 

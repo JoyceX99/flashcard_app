@@ -1,0 +1,80 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.thin-text {
+  font-family: "Open Sans";
+  font-weight: 300;
+}
+
+.large-text {
+  font-size: 3em;
+  font-family: "Raleway";
+}
+
+.signin-container {
+  margin: 0 auto;
+  margin-top: 60px;
+  width: 340px;
+}
+
+.signin-button {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 25px;
+  text-align: center;
+  border: 1px solid #A1D9FF;
+  &:hover {
+    background: rgb(89, 89, 89);
+  }
+}
+
+.signin-text {
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font: "Open Sans";
+  font-size: 1.8em;
+}
+
+
+.browse-cards-container {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 600px;
+}
+
+.browse-cards-button {
+  box-sizing: border-box;
+  font-size: 2em;
+  width: 100%;
+  padding: 25px;
+  margin-bottom: 30px;
+  text-align: center;
+  border: 1px solid #AD87FF;
+  &:hover {
+    background: rgb(89, 89, 89);
+  }
+}
+
+.redirect_container {
+  margin: 0 auto;
+  margin-top: 80px;
+  width: 600px;
+}
+
+.redirect_button {
+  box-sizing: border-box;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 50px 25px;
+  margin-bottom: 30px;
+  text-align: center;
+  border: 3px solid transparent;
+  border-image: linear-gradient(to bottom right, #87f6f6 0%, #4c3bd7 100%);
+  border-image-slice: 1;
+  &:hover {
+    background: rgb(89, 89, 89);
+  }
+}

@@ -22,7 +22,11 @@ module SessionsHelper
       end
     end
   end
-  
+
+  def user_is_owner?(user)
+    user == current_user
+  end
+
   def logged_in?
     !current_user.nil?
   end

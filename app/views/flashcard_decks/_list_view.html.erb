@@ -11,7 +11,9 @@
   <% end %>
 </table>
 
-<div class="flashcards_button_space">
-  <b><%= link_to 'Edit', edit_flashcard_deck_path, class: "edit_delete_buttons edit plain-link" %></b>
-  <b><%= link_to 'Destroy',  { action: :destroy, id: deck.id }, method: :delete, data: { confirm: 'Delete full deck and all its flashcards?' }, class: " edit_delete_buttons delete plain-link" %></b>
-</div>
+<% if user_is_owner?(deck.user) %>
+  <div class="flashcards_button_space">
+    <b><%= link_to 'Edit', edit_flashcard_deck_path, class: "edit_delete_buttons edit plain-link" %></b>
+    <b><%= link_to 'Destroy',  { action: :destroy, id: deck.id }, method: :delete, data: { confirm: 'Delete full deck and all its flashcards?' }, class: " edit_delete_buttons delete plain-link" %></b>
+  </div>
+<% end %>

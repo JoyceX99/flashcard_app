@@ -1,18 +1,21 @@
 Quizlet::Application.routes.draw do
 
+  get 'home/home'
+
   #root                         'flashcard_decks#index'
-  root                         'users#home'
+  root                         'home#home'
   get 'flashcard_mode'      => 'flashcard_decks#show_flashcards'
 
   get 'signup'    => 'users#new'
   get 'login'     => 'sessions#new'
   post 'login'    => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'browse'    => 'home#browse'
 
   get '/users/:id/flashcard_decks', to: redirect('/users/%{id}')
 
   resources :users, except: :index do
-    resources :flashcard_decks, only: [:index, :new, :create]
+    resources :flashcard_decks, only: [:new, :create]
   end
   resources :flashcard_decks, only: [:show, :edit, :update, :destroy]
 

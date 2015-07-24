@@ -6,11 +6,12 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway|Lato|Open+Sans">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway|Lato|Open+Sans|Open+Sans:300|Source+Sans+Pro">
 </head>
 <body>
   <%= render 'layouts/header' %>
   <div class="background">
+    <%= render 'layouts/flash_messages' %>
     <%= yield %>
   </div>
 </body>

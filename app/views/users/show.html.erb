@@ -1,2 +1,19 @@
-<%= @user.name %>, <%= @user.email %>
-<%= @decks.first.name %>
+<div class="viewport">
+  <% if user_is_owner?(@user) %>
+    <h1 class="center home_title">Your Flashcards</h1>
+    <div class="button-holder">
+      <%= link_to "New deck", new_user_flashcard_deck_path(@user, @decks), class: "new_deck_button" %>
+    </div>
+  <% else %>
+    <h1 class="center home_title">Flashcards</h1>
+  <% end %>
+  <div class="flashcard_decks_container">
+    <% if @decks.length > 0 %>
+      <ul class="decks">
+        <%= render @decks %>
+      </ul>
+    <% else %>
+      <p class="center">You have no flashcard decks at this time. Add some new ones!</p>
+    <% end %>
+  </div>
+</div>

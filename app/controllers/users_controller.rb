@@ -1,14 +1,7 @@
 class UsersController < ApplicationController
   before_action :check_logged_in, only: [:show, :edit, :update, :destroy]
-  before_action :check_correct_user, only: [:edit, :update, :destroy]   # can view other users' flashcards, but cannot modify
-
-  def home
-    if logged_in?
-      redirect_to current_user
-    else
-      render 'home'
-    end
-  end
+  #before_action :check_correct_user, only: [:edit, :update, :destroy]   # can view other users' flashcards, but cannot modify
+  before_action -> { check_correct_user params[:id] }, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -18,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
+      flash[:notice] = "Welcome to your Flashcards 2.0!"
       redirect_to @user
     else
       render 'new'
@@ -27,7 +21,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @decks = @user.flashcard_decks.order(id: :desc)
-    render 'shared/_decks_home'
   end
 
   def edit
@@ -36,6 +29,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:notice] = "Updated account information"
+      redirect_to @user
+    else
+      flash.now[:alert] = "Error updating account"
+      render 'edit'
+    end
   end
 
   def destroy
@@ -47,17 +47,6 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation);
-    end
-
-    def check_logged_in
-      unless logged_in?
-        redirect_to login_path
-      end
-    end
-
-    def check_correct_user
-      @user = User.find(params[:id])
-      redirect_to login_path unless @user == current_user
     end
 
 end

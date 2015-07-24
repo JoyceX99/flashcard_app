@@ -1,0 +1,25 @@
+<div class="white-text thin-text">
+  <h1 class="center large-text">Welcome to Flashcards 2.0!</h1>
+  <% if !logged_in? %>
+    <div class="signin-container">
+      <div class="signin-button hvr-grow">
+        <%= link_to "Sign up now!", signup_path, class: "signin-text" %>
+      </div>
+      <div class="signin-button hvr-grow">
+        <%= link_to "Log me in", login_path, class: "signin-text" %>
+      </div>
+    </div>
+  <% else %>
+    <div class="redirect_container">
+      <div class="redirect_button hvr-grow">
+        <%= link_to "Go to my flashcards", current_user, class: "signin-text" %>
+      </div>
+    </div>
+  <% end %>
+  <h2 class="center">Or</h2>
+  <div class="browse-cards-container">
+    <div class="browse-cards-button hvr-grow">
+      <%= link_to "Browse our flashcards", browse_path, class: "plain-link-white" %>
+    </div>
+  </div>
+</div>

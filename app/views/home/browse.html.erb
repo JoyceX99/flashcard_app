@@ -1,0 +1,12 @@
+<div class="viewport">
+  <h1 class="center home_title">All Flashcard Decks</h1>
+  <div class="flashcard_decks_container">
+    <% if @decks.length > 0 %>
+      <ul class="decks">
+        <%= render @decks %>
+      </ul>
+    <% else %>
+      <p class="center">There are no flashcard decks to be displayed at this time.</p>
+    <% end %>
+  </div>
+</div>

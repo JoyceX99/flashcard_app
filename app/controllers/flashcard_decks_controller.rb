@@ -1,11 +1,6 @@
 class FlashcardDecksController < ApplicationController
-
-  # GET list of flashcards
-  def index
-    #@decks = FlashcardDeck.order(id: :desc).all
-    @decks = current_user.flashcard_decks.order(id: :desc)
-    render 'shared/_decks_home'
-  end
+  before_action :check_logged_in
+  before_action :check_correct_user_custom, except: [:index, :show]
 
   # GET form for creating new flashcard deck
   def new
@@ -16,7 +11,9 @@ class FlashcardDecksController < ApplicationController
   def create
     @deck = current_user.flashcard_decks.new(deck_params)
     if @deck.save
-      redirect_to user_flashcard_decks_path
+      #redirect_to user_flashcard_decks_path
+      @user = @deck.user
+      redirect_to @user
     else
       render :new
     end
@@ -40,6 +37,7 @@ class FlashcardDecksController < ApplicationController
   # GET form for editing flashcard deck
   def edit
     @deck = FlashcardDeck.find(params[:id])
+    @user = @deck.user
   end
 
   # PUT update
@@ -55,12 +53,28 @@ class FlashcardDecksController < ApplicationController
   # DELETE flashcard deck
   def destroy
     @deck = FlashcardDeck.find(params[:id])
+    @user = @deck.user
     @deck.destroy
-    redirect_to root_path
+    redirect_to @user
   end
 
   private
     def deck_params
       params.require(:flashcard_deck).permit(:name, :description, flashcards_attributes: [:front, :back, :id, :_destroy])
+    end
+
+    def find_deck_id
+      @deck = FlashcardDeck.find(params[:id])
+      return @deck.user.id
+    end
+
+    def check_correct_user_custom
+      if !params[:user_id].nil?
+        check_correct_user params[:user_id]
+      else
+        deck = FlashcardDeck.find(params[:id])
+        user_id = deck.user.id
+        check_correct_user user_id
+      end
     end
 end

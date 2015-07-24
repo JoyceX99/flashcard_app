@@ -1,12 +1,26 @@
-<div class="header">
-  <div class="login-logout">
-    <% if logged_in? %>
-      <p><%= link_to "Log out", logout_path, method: "delete", class: "header-link" %></p>
-    <% else %>
-      <p><%= link_to "Log in", login_path, method: "get", class: "header-link" %></p>
-    <% end %>
+<% if logged_in? %>
+  <div class="header">
+    <div class="left-link">
+      <%= link_to "Home", root_path, class: "header-link" %>
+    </div>
+    <div class="right-link">
+      <%= link_to "Log out", logout_path, method: "delete", class: "header-link" %>
+    </div>
+    <!-- TEMPORARY -->
+    <div class="right-link">
+      <%= link_to "Edit Profile", edit_user_path(current_user.id), class: "header-link" %>
+    </div>
+    <h2 class="middle-link">
+      <%= link_to "Flashcards", current_user, class: "header-link" %>
+    </h2>
   </div>
-  <h2 class="header-container">
-    <%= link_to "Header", root_path, class: "header-link" %>
-  </h2>
-</div>
+<% else %>
+  <div class="header">
+    <div class="left-link">
+      <%= link_to "Home", root_path, class: "header-link" %>
+    </div>
+    <div class="right-link">
+      <%= link_to "Log in", login_path, class: "header-link" %>
+    </div>
+  </div>
+<% end %>
