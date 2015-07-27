@@ -3,13 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .thin-text {
-  font-family: "Open Sans";
+  font-family: "Open Sans", Helvetica, sans-serif;
   font-weight: 300;
 }
 
 .large-text {
   font-size: 3em;
-  font-family: "Raleway";
+  font-family: "Raleway", Helvetica, sans-serif;
 }
 
 .signin-container {
@@ -34,7 +34,7 @@
   text-align: center;
   text-decoration: none;
   color: #fff;
-  font: "Open Sans";
+  font: "Open Sans", Helvetica, sans-serif;
   font-size: 1.8em;
 }
 
