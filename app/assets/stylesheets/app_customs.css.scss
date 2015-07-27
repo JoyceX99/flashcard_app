@@ -8,6 +8,7 @@ body {
   background: #454545;
   margin: 0px;
   font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 300;
 }
 
 
@@ -19,12 +20,11 @@ body {
 
 .left-link {
   float: left;
-  margin: 10px;
-  padding: 7px;
-  background: rgb(100, 100, 100);
-  border-radius: 5px;
+  margin: 11px;
+  padding: 5px;
+  border: 1px solid #aaa;
   &:hover {
-    background: rgb(140, 140, 140);
+    background: #666;
   }
 }
 
@@ -36,12 +36,11 @@ body {
 
 .right-link {
   float: right;
-  margin: 10px;
-  padding: 7px;
-  background: rgb(100, 100, 100);
-  border-radius: 5px;
+  margin: 11px;
+  padding: 5px;
+  border: 1px solid #aaa;
   &:hover {
-    background: rgb(140, 140, 140);
+    background: #666;
   }
 }
 
