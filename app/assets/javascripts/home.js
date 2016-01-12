@@ -1,5 +1,5 @@
 $(document).on('ready', function(){
-  
+
   $(document).on('page:change', function() {
     setIndexContainerWidth();
   });
@@ -39,11 +39,10 @@ $(document).on('ready', function(){
   });
 
 
-  $(document).on('click', '.decks li', function() {
+  $(document).on('click', '.decks li, .signin-button, .browse-cards-button', function() {
     window.location = $(this).find('a').attr('href');
 		return false;
 	});
-
 });
 
 $(window).on('resize', function(){

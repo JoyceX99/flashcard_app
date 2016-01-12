@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'nested_form'
+gem 'yaml_db'
 
 # nice formatting for irb's console inspection
 gem 'hirb', '~>0.7.3'
